@@ -23,7 +23,6 @@ public class User {
 
     private Cart cart;
 
-
     public void setUser_notifications(ArrayList<User_Notification> user_notifications) {
         this.user_notifications = user_notifications;
     }
@@ -52,7 +51,7 @@ public class User {
     }
 
     public User() {
-
+        this.cart = new Cart();
     }
 
     public String getId() {
