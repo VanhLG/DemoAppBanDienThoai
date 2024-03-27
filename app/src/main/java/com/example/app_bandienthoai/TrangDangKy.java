@@ -29,6 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import models.Cart;
 import models.User;
 import models.User_Notification;
 import models.Voucher;
@@ -139,9 +140,10 @@ public class TrangDangKy extends AppCompatActivity {
                 Date date = new Date(Integer.parseInt(ngaySinh.substring(6,10)),Integer.parseInt(ngaySinh.substring(3,5)),Integer.parseInt(ngaySinh.substring(0,2)));
                 ArrayList<Voucher> arrayList =new ArrayList<>();
                 Voucher voucher=new Voucher("1","New User","Chao mung ban moi","image",100f,0f);
-
+                Cart cart = new Cart();
                 arrayList.add(voucher);
-                User user = new User(idUser,hoTen,username, matKhau,date,SDT,arrayList,user_notifications);
+                ArrayList<String> list_Invoices=new ArrayList<>();
+                User user = new User(idUser,hoTen,username, matKhau,date,SDT,arrayList,list_Invoices,user_notifications,cart);
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 

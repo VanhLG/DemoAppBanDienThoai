@@ -11,8 +11,29 @@ public class Invoice {
     private float total;
     private float discount;
     private Date create_at;
-
     private boolean is_validate;
+    private String check;
+
+    public Invoice(String id, String user_id, String address, float total, float discount, Date create_at, String check, ArrayList<Order> orders) {
+        this.id = id;
+        this.user_id = user_id;
+        this.address = address;
+        this.total = total;
+        this.discount = discount;
+        this.create_at = create_at;
+        this.check = check;
+        this.orders = orders;
+        this.is_validate = false;
+    }
+
+    public String getCheck() {
+        return check;
+    }
+
+    public void setCheck(String check) {
+        this.check = check;
+    }
+
     private ArrayList<Order> orders;
 
     public Invoice(String id, String user_id, String address, float total, float discount, ArrayList<Order> orders) {

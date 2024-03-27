@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class TrangMyProfile extends AppCompatActivity {
@@ -28,6 +30,7 @@ public class TrangMyProfile extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     EditText edHoTen,edSDT,edNgaySinh;
     TextView txtEmail,txtProFileName;
+    Button btDonHangDaMua;
     ImageButton btEditThongTin;
     @SuppressLint("WrongViewCast")
     @Override
@@ -38,6 +41,7 @@ public class TrangMyProfile extends AppCompatActivity {
         sharedPreferences= getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
         String myId = sharedPreferences.getString("id", "-1");
         usersRef = FirebaseDatabase.getInstance().getReference("Users").child(myId);
+        btDonHangDaMua=findViewById(R.id.editDonHangDaMua);
         edHoTen=findViewById(R.id.textViewSuaTen);
         edSDT=findViewById(R.id.textViewSDT);
        txtEmail=findViewById(R.id.textViewEmail);
@@ -45,6 +49,16 @@ public class TrangMyProfile extends AppCompatActivity {
        txtProFileName=findViewById(R.id.profileName);
        edNgaySinh =findViewById(R.id.textViewNgaySinh);
        btEditThongTin=findViewById(R.id.btEditThongTin);
+
+       btDonHangDaMua.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent i=new Intent(TrangMyProfile.this,TrangXemDHdamua.class);
+               startActivity(i);
+
+
+           }
+       });
 
     btEditThongTin.setOnClickListener(new View.OnClickListener() {
         @Override

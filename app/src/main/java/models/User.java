@@ -14,6 +14,28 @@ public class User {
     private Date date_of_birth;
     private String phone;
     private ArrayList<Voucher> vouchers;
+    private ArrayList<String> Id_invoices;
+
+    public User(String id, String name, String email, String password, Date date_of_birth, String phone, ArrayList<Voucher> vouchers, ArrayList<String> id_invoices, ArrayList<User_Notification> user_notifications, Cart cart) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.date_of_birth = date_of_birth;
+        this.phone = phone;
+        this.vouchers = vouchers;
+        this.Id_invoices = id_invoices;
+        this.user_notifications = user_notifications;
+        this.cart = cart;
+    }
+
+    public ArrayList<String> getId_invoices() {
+        return Id_invoices;
+    }
+
+    public void setId_invoices(ArrayList<String> id_invoices) {
+        Id_invoices = id_invoices;
+    }
 
     private ArrayList<User_Notification> user_notifications;
 

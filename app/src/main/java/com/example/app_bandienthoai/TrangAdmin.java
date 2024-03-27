@@ -33,7 +33,14 @@ public class TrangAdmin extends AppCompatActivity {
         });
 
         mapping_client();
-
+        btDuyetDonHang = findViewById(R.id.btDuyetDonHang);
+        btDuyetDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(TrangAdmin.this, TrangDuyetDonHang.class);
+                startActivity(i);
+            }
+        });
         this.btUpdateSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
